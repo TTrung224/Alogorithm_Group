@@ -4,6 +4,10 @@ public class SecretKeyGuesser {
         String str = "RRRRRRRRRRRRRRRR";
 
         int correctLetters = key.guess(str);
+        if (correctLetters == -1){
+            System.out.println("secret key's length and guess key's length is not equal");
+            return;
+        }
 
         // Check each letter in str
         for (int i = 0; i < str.length(); i++) {
