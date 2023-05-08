@@ -1,39 +1,38 @@
 public class SecretKeyGuesser {
     public void start() {
         SecretKey key = new SecretKey();
-        String str = "RRRRRRRRRRRRRRRR";
+        String guessingKey = "RRRRRRRRRRRRRRRR";
 
-        int correctLetters = key.guess(str);
+        int correctLetters = key.guess(guessingKey);
         if (correctLetters == -1){
-            System.out.println("secret key's length and guess key's length is not equal");
+            System.out.println("key length is not 16 or contains invalid characters");
             return;
         }
 
         // Check each letter in str
-        for (int i = 0; i < str.length(); i++) {
-            if(correctLetters == str.length()){
+        for (int i = 0; i < guessingKey.length(); i++) {
+            if(correctLetters == guessingKey.length()){
                 break;
             }
 
             // Loop for each letter: R, M, I, T
             for(int j = 0 ; j < 3; j ++){
-
-                String newStr = next(str, i);
+                String newStr = next(guessingKey, i);
                 int newCorrectLetters = key.guess(newStr);
 
                 if(newCorrectLetters < correctLetters){
                     break;
                 }
                 else if(newCorrectLetters > correctLetters){
-                    str = newStr;
+                    guessingKey = newStr;
                     correctLetters = newCorrectLetters;
                     break;
                 }else {
-                    str = newStr;
+                    guessingKey = newStr;
                 }
             }
         }
-        System.out.println("I found the secret key. It is " + str);
+        System.out.println("I found the secret key. It is " + guessingKey);
     }
     static String next(String str, int index){
         char[] curr = str.toCharArray();
@@ -62,19 +61,4 @@ public class SecretKeyGuesser {
         }
         return 'T';
     }
-
-    // return the next value in 'RMIT' order, that is
-    // R < M < I < T
-    // public String next(String current) {
-    //     char[] curr = current.toCharArray();
-    //     for (int i = curr.length - 1; i >=0; i--) {
-    //         if (order(curr[i]) < 3) {
-    //             // increase this one and stop
-    //             curr[i] = charOf(order(curr[i]) + 1);
-    //             break;
-    //         }
-    //         curr[i] = 'R';
-    //     }
-    //     return String.valueOf(curr);
-    // }
 }
