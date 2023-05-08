@@ -5,7 +5,7 @@ public class SecretKeyGuesser {
 
         int correctLetters = key.guess(guessingKey);
         if (correctLetters == -1){
-            System.out.println("key length is not 16 or contains invalid characters");
+            System.out.println("Invalid length or contains invalid characters");
             return;
         }
 
@@ -36,7 +36,7 @@ public class SecretKeyGuesser {
     }
     static String next(String str, int index){
         char[] curr = str.toCharArray();
-        curr[index] = charOf(order(curr[index]) + 1);
+        curr[index] = charOf(((order(curr[index]) + 1) % 4));
 
         return String.valueOf(curr);
     }

@@ -4,8 +4,14 @@ public class SecretKey {
 
     public SecretKey() {
         // for the real test, your program will not know this
-//        correctKey = "RMITRMITRMITRMIT";
-        correctKey = "TTTTTTTTTTTTTTTT";
+        // Best case
+        //correctKey = "RRRRRRRRRRRRRRRR";
+
+        // Average
+        correctKey = "RMMITTMMRRMITMIR";
+
+        // Worst case
+        //correctKey = "TTTTTTTTTTTTTTTT";
         counter = 0;
     }
 
