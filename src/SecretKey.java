@@ -8,7 +8,7 @@ public class SecretKey {
         //correctKey = "RRRRRRRRRRRRRRRR";
 
         // Average
-        correctKey = "RMMITTMMRRMITMIR";
+        correctKey = "RMMITMRIIIMITMIR";
 
         // Worst case
         //correctKey = "TTTTTTTTTTTTTTTT";
